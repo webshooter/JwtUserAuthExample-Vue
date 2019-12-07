@@ -1,7 +1,9 @@
 import express from "express";
 
+// eslint-disable-next-line import/named
+import { port } from "./config";
+
 const app = express();
-const port = 3000;
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
