@@ -6,7 +6,6 @@ import { existsSync } from "fs";
 
 if (process.env.NODE_ENV !== "production") {
   const envConfigFile = path.join(__dirname, `./.env.${process.env.NODE_ENV}`);
-  console.log(`loading config file ${envConfigFile}`);
   if (!existsSync(envConfigFile)) {
     throw new Error(`Expected config file not found: ${envConfigFile}`);
   }
