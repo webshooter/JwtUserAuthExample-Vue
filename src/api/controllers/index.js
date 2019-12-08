@@ -3,7 +3,7 @@ import createChonk from "../behaviors";
 
 const getChonk = makeGetChonk({ createChonk });
 
-const controllers = { getChonk };
+const controller = Object.freeze({ getChonk });
 
-export default controllers;
+export default controller;
 export { getChonk };
