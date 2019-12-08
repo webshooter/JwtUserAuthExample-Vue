@@ -11,9 +11,9 @@ const generateChonkValue = buildGenerateChonkValue({ namespace });
 
 const makeChonk = buildMakeChonk({ generateChonkValue, namespace });
 
-const entities = {
+const entities = Object.freeze({
   makeChonk,
-};
+});
 
 export default entities;
 export { makeChonk };
