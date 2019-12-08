@@ -18,8 +18,8 @@ describe("create new chonk", () => {
   it("creates a new chonk", () => {
     const user = uuidv4();
     const seed = uuidv4();
-    const createChonk = buildCreateChonk({ user, seed });
-    const chonk = createChonk();
+    const createChonk = buildCreateChonk();
+    const chonk = createChonk({ user, seed });
 
     expect(chonk.getUser()).toBe(user);
     expect(chonk.getNamespace()).toBe(namespace);

@@ -1,5 +1,5 @@
 import { makeChonk } from "../entities";
 
-const buildCreateChonk = ({ user, seed }) => () => makeChonk({ user, seed });
+const buildCreateChonk = () => chonkInfo => makeChonk(chonkInfo);
 
 export default buildCreateChonk;
