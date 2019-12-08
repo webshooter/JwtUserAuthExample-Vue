@@ -1,4 +1,4 @@
-const buildMakeChonk = ({ generateChonk, namespace } = {}) => ({ user, seed }) => {
+const buildMakeChonk = ({ generateChonkValue, namespace } = {}) => ({ user, seed }) => {
   if (!namespace) {
     throw new Error("Chonk requires a valid namespace");
   }
@@ -7,11 +7,11 @@ const buildMakeChonk = ({ generateChonk, namespace } = {}) => ({ user, seed }) =
     throw new Error("Chonk requires a valid seed");
   }
 
-  if (!generateChonk || typeof generateChonk !== "function") {
+  if (!generateChonkValue || typeof generateChonkValue !== "function") {
     throw new Error("Chonk requires a valid generator");
   }
 
-  const chonk = generateChonk({ namespace, seed, user });
+  const chonk = generateChonkValue({ namespace, seed, user });
   const timestamp = Date.now();
 
   return {
