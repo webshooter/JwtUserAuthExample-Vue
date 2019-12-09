@@ -13,6 +13,8 @@ const makeExpressCallabck = controller => (req, res) => {
     },
   };
 
+  console.log(httpRequest);
+
   controller(httpRequest)
     .then(httpResponse => {
       if (httpResponse.headers) {

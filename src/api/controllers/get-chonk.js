@@ -9,8 +9,9 @@ const makeGetChonk = () => async httpRequest => {
   let statusCode;
   let responseBody;
 
+  // TODO: replace temp user value with auth'd user id
   try {
-    const { user, body } = httpRequest;
+    const { user = "ABCDE12345", body } = httpRequest;
     const { seed } = body;
     const {
       getUser,
@@ -37,6 +38,8 @@ const makeGetChonk = () => async httpRequest => {
     logger.error(e.message);
 
     statusCode = 500;
+
+    // TODO: curate the returned error messages here
     responseBody = {
       error: e.message,
     };
