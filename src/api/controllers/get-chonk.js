@@ -1,25 +1,28 @@
+import logger from "../../logger";
 import { createChonk } from "../behaviors";
 
-const makeGetChonk = () => httpRequest => {
-  const { user, body } = httpRequest;
-  const { seed } = body;
+const makeGetChonk = () => async httpRequest => {
   const headers = {
     "Content-Type": "application/json",
   };
-  const statusCode = 200;
-  const {
-    getUser,
-    getNamespace,
-    getSeed,
-    getChonk,
-    getTimestamp,
-    getStatus,
-  } = createChonk({ user, seed });
 
-  return {
-    headers,
-    statusCode,
-    body: {
+  let statusCode;
+  let responseBody;
+
+  try {
+    const { user, body } = httpRequest;
+    const { seed } = body;
+    const {
+      getUser,
+      getNamespace,
+      getSeed,
+      getChonk,
+      getTimestamp,
+      getStatus,
+    } = createChonk({ user, seed });
+
+    statusCode = 200;
+    responseBody = {
       chonk: {
         user: getUser(),
         namespace: getNamespace(),
@@ -28,7 +31,21 @@ const makeGetChonk = () => httpRequest => {
         timestamp: getTimestamp(),
         status: getStatus(),
       },
-    },
+    };
+  } catch (e) {
+    // TODO: get trace info into error logs
+    logger.error(e.message);
+
+    statusCode = 500;
+    responseBody = {
+      error: e.message,
+    };
+  }
+
+  return {
+    headers,
+    statusCode,
+    body: responseBody,
   };
 };
 

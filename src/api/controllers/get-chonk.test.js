@@ -3,7 +3,7 @@ import makeGetChonk from "./get-chonk";
 import createChonk from "../behaviors";
 
 describe("get-chonk", () => {
-  it("returns a new chonk", () => {
+  it("returns a new chonk", async () => {
     const httpRequest = {
       user: uuidv4(),
       body: {
@@ -11,7 +11,7 @@ describe("get-chonk", () => {
       },
     };
     const getChonk = makeGetChonk({ createChonk });
-    const { headers, statusCode, body } = getChonk(httpRequest);
+    const { headers, statusCode, body } = await getChonk(httpRequest);
     const { user, seed, timestamp } = body.chonk;
 
     expect(headers).toMatchObject({ "Content-Type": "application/json" });
