@@ -1,5 +1,6 @@
 const makeExpressCallabck = controller => (req, res) => {
   const httpRequest = {
+    user: req.user,
     body: req.body,
     query: req.query,
     params: req.params,
@@ -12,8 +13,6 @@ const makeExpressCallabck = controller => (req, res) => {
       "User-Agent": req.get("User-Agent"),
     },
   };
-
-  console.log(httpRequest);
 
   controller(httpRequest)
     .then(httpResponse => {
