@@ -14,7 +14,7 @@ const makePostUser = ({ addUser, adminApiKey }) => async httpRequest => {
     return {
       headers,
       statusCode: 401,
-      error: "Requires authentication",
+      body: { error: "Requires authentication" },
     };
   }
 
@@ -22,7 +22,7 @@ const makePostUser = ({ addUser, adminApiKey }) => async httpRequest => {
     return {
       headers,
       statusCode: 403,
-      error: "Unauthorized operation",
+      body: { error: "Unauthorized operation" },
     };
   }
 
