@@ -1,8 +1,8 @@
 import Id from "../../Id";
 
-const makeUsersDb = ({ makeDb }) => {
-  const collectionName = "users";
+const collectionName = "users";
 
+const makeUsersDb = ({ makeDb }) => {
   const findAll = async () => {
     const db = await makeDb();
     const query = {};
@@ -59,7 +59,7 @@ const makeUsersDb = ({ makeDb }) => {
     return { id, ...found };
   };
 
-  const insert = async (userInfo) => {
+  const insert = async userInfo => {
     // eslint-disable-next-line no-underscore-dangle
     const _id = userInfo.id || Id.makeId();
     const db = await makeDb();
@@ -104,7 +104,7 @@ const makeUsersDb = ({ makeDb }) => {
     update,
     remove,
   });
-
 };
 
 export default makeUsersDb;
+export { collectionName };

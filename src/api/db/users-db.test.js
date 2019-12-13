@@ -31,7 +31,7 @@ describe("users-db", () => {
         // remap id to _id for mongodb
         .map(({ id, ...rest }) => ({ _id: id, ...rest })));
 
-    usersDb = await makeUsersDb({ makeDb });
+    usersDb = makeUsersDb({ makeDb });
   });
 
   afterEach(async () => {
