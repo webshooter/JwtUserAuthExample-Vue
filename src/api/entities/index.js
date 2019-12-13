@@ -1,4 +1,5 @@
 import uuidv5 from "uuid/v5";
+import makeUser from "./user";
 import buildMakeChonk from "./chonk";
 import buildGenerateChonkValue from "../generate-chonk-value";
 
@@ -13,7 +14,11 @@ const makeChonk = buildMakeChonk({ generateChonkValue, namespace });
 
 const entities = Object.freeze({
   makeChonk,
+  makeUser,
 });
 
 export default entities;
-export { makeChonk };
+export {
+  makeUser,
+  makeChonk,
+};
