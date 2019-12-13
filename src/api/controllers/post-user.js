@@ -10,9 +10,6 @@ const makePostUser = ({ addUser, adminApiKey }) => async httpRequest => {
     "Content-Type": "application/json",
   };
 
-  console.log(adminApiKey, apiKey);
-  console.log(httpRequest);
-
   if (!adminApiKey || !apiKey) {
     return {
       headers,
