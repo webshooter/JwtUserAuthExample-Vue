@@ -19,26 +19,27 @@ const config = {
     port: process.env.PORT || 3000,
     ip: process.env.IP || "0.0.0.0",
     apiRoot: process.env.API_ROOT || "/api",
+    apiKey: process.env.API_KEY,
     domain: process.env.DOMAIN || "jwtuserauth.rnickerson.com",
     minPasswordLength: process.env.MIN_PWD_LENGTH || 10,
   },
   test: {
     mongo: {
-      uri: "mongodb://localhost",
-      dbName: "jwt-user-auth-test",
+      uri: process.env.MONGO_URI || "mongodb://localhost",
+      dbName: process.env.MONGO_DBNAME || "jwt-user-auth-test",
       options: {
-        debug: true,
         useNewUrlParser: true,
+        useUnifiedTopology: true,
       },
     },
   },
   development: {
     mongo: {
-      uri: "mongodb://localhost",
-      dbName: "jwt-user-auth-dev",
+      uri: process.env.MONGO_URI || "mongodb://localhost",
+      dbName: process.env.MONGO_DBNAME || "jwt-user-auth-dev",
       options: {
-        debug: true,
         useNewUrlParser: true,
+        useUnifiedTopology: true,
       },
     },
   },

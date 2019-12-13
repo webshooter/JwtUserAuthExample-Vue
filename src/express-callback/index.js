@@ -14,6 +14,10 @@ const makeExpressCallabck = controller => (req, res) => {
     },
   };
 
+  if (req.get("x-api-key")) {
+    httpRequest.headers["x-api-key"] = req.get("x-api-key");
+  }
+
   controller(httpRequest)
     .then(httpResponse => {
       if (httpResponse.headers) {

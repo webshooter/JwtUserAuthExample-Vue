@@ -19,6 +19,6 @@ const entities = Object.freeze({
 
 export default entities;
 export {
-  makeUser,
   makeChonk,
+  makeUser,
 };

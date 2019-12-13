@@ -1,6 +1,6 @@
 import uuidv4 from "uuid/v4";
 import makeGetChonk from "./get-chonk";
-import createChonk from "../behaviors";
+import { createChonk } from "../behaviors";
 
 describe("get-chonk", () => {
   it("returns a new chonk", async () => {

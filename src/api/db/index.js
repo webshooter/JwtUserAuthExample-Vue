@@ -18,7 +18,7 @@ const makeDb = async () => {
 
 const usersDb = makeUsersDb({ makeDb });
 
+export default makeDb;
 export {
-  makeDb,
   usersDb,
 };
